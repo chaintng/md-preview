@@ -2,6 +2,8 @@
 // SPDX-FileCopyrightText: 2024 Robin Vobruba <hoijui.quaero@gmail.com>
 //
 // SPDX-License-Identifier: Apache-2.0
+import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+
 
 // eslint-disable-next-line max-statements
 (function () {
@@ -391,6 +393,7 @@
 				/<script(\s*src=["'][^"']*["'])?(\s*type=["'](text|application)\/javascript["'])?/gi,
 				'<script type="text/htmlpreview"$1'
 			);
+			data += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">';
 			// Delay updating document to have it cleared before
 			setTimeout(function () {
 				document.open();
@@ -438,7 +441,9 @@
 	};
 
 	if (rawFileUrl && rawFileUrl.indexOf(location.hostname) < 0) {
-		fetchProxy(rawFileUrl, null, 0).then(loadHTML).catch(function (error) {
+		fetchProxy(rawFileUrl, null, 0).then((markdownRaw) => {
+			loadHTML(marked.parse(markdownRaw))
+		}).catch(function (error) {
 			// console.error(error);
 			previewForm.style.display = 'block';
 			previewForm.innerText = error;

@@ -35,5 +35,8 @@
     "git-forge",
     "render",
     "tool"
-  ]
+  ],
+  "dependencies": {
+    "marked": "^15.0.3"
+  }
 }

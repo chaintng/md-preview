@@ -38,4 +38,4 @@ done
 
 echo "Serving '$serve_dir' on <http://localhost:$serve_port>."
 echo "Stop serving with [Ctrl+C]."
-busybox httpd -f -h "$serve_dir" -v -p "$serve_port"
+python3 -m http.server "$serve_port" --directory "$serve_dir"

@@ -59,6 +59,8 @@ SPDX-License-Identifier: Apache-2.0
 			Contribute on <a href="https://github.com/html-preview/html-preview.github.io">GitHub</a>
 		</p>
 	</form>
-	<script src="htmlpreview.js"></script>
+	<script type="module" src="htmlpreview.js">
+		import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+	</script>
 </body>
 </html>

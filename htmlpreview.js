@@ -393,7 +393,8 @@ import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 				/<script(\s*src=["'][^"']*["'])?(\s*type=["'](text|application)\/javascript["'])?/gi,
 				'<script type="text/htmlpreview"$1'
 			);
-			data += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">';
+			data = '<meta name="viewport" content="width=device-width, initial-scale=1.0">' + data;
+			data += '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/2.3.7/mini-default.min.css">';
 			// Delay updating document to have it cleared before
 			setTimeout(function () {
 				document.open();
